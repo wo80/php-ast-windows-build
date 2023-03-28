@@ -34,13 +34,14 @@ jobs:
         with:
           arch: ${{matrix.arch}}
           toolset: ${{steps.setup-php.outputs.toolset}}
-      - name: phpize
+      - name: Build php-ast
         run: |
           cd php-ast
+          dir
           phpize
           configure --enable-ast --with-prefix=${{steps.setup-php.outputs.prefix}}
           nmake
-      - name: package
+      - name: Package
         run: |
           md binaries
           copy php-ast/LICENSE binaries
