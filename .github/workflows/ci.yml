@@ -8,9 +8,6 @@ on:
       - main
 jobs:
   windows:
-    defaults:
-      run:
-        shell: cmd
     strategy:
       fail-fast: false
       matrix:
