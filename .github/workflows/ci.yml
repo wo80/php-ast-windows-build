@@ -38,7 +38,7 @@ jobs:
           cd php-ast
           dir
           phpize
-          configure --enable-ast --with-prefix=${{steps.setup-php.outputs.prefix}}
+          ./configure.bat --enable-ast --with-prefix=${{steps.setup-php.outputs.prefix}}
           nmake
       - name: Package
         run: |
