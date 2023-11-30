@@ -23,7 +23,7 @@ jobs:
           submodules: recursive
       - name: Setup PHP
         id: setup-php
-        uses: derickr/setup-php-sdk@b35e22e1afa909692a93556f46ea667037ad593f
+        uses: php/setup-php-sdk@v0.8
         with:
           version: ${{matrix.version}}
           arch: ${{matrix.arch}}
