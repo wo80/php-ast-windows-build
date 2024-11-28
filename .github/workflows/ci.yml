@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: ["8.2", "8.3"]
+        version: ["8.3", "8.4"]
         arch: [x64]
         ts: [nts, ts]
     runs-on: windows-latest
@@ -23,7 +23,7 @@ jobs:
           submodules: recursive
       - name: Setup PHP
         id: setup-php
-        uses: php/setup-php-sdk@v0.8
+        uses: php/setup-php-sdk@v0.10
         with:
           version: ${{matrix.version}}
           arch: ${{matrix.arch}}
@@ -45,7 +45,7 @@ jobs:
           copy php-ast/LICENSE binaries
           Get-ChildItem -Recurse -Filter "php_ast.dll" | ForEach-Object {Copy-Item -Path $_.FullName -Destination "binaries"}
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: php_ast-${{matrix.version}}-${{matrix.arch}}-${{matrix.ts}}
           path: binaries
